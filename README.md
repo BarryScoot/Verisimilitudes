@@ -1,2 +1,0 @@
-# Verisimilitudes
-Verisimilitudes blog

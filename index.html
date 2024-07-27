@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verisimilitudes</title>
+    <style>
+        body {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E0D0CD;
+            color: #24124B;
+        }
+        header {
+            background-color: #93151b;
+            color: #0d0149;
+            text-align: center;
+            padding: 1rem 0;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+        nav {
+            background-color: #fff;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #24124B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #FF6F30;
+            border-radius: 5px;
+            color: #fff;
+            padding: 5px 10px;
+        }
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        .main-content {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .post h2 {
+            margin: 0 0 10px;
+        }
+        .newsletter, .translate, .contact-info {
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #24124B;
+            color: #fff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, button {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #FF6F30;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+        .search-bar {
+            margin-left: auto;
+        }
+        .search-bar input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #FF6F30;
+            background-color: #FF6F30;
+            color: white;
+            cursor: pointer;
+        }
+        .daily-quote {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verisimilitudes</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('posts')">Posts</a>
+        <a href="#" onclick="showPage('collections')">Collections</a>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search posts...">
+            <button onclick="searchPosts()">Search</button>
+        </div>
+    </nav>
+    <div id="home" class="container">
+        <div class="main-content">
+            <h2>Fortitude And Nothing Less</h2>
+            <p>Mettlesome articles, analyses and opinions. A blog discussing history, science, philosophy and more pragmatically.</p>
+            <div class="daily-quote">
+                <h3>Daily Quote</h3>
+                <p id="quoteText">"The only limit to our realization of tomorrow is our doubts of today." - Franklin D. Roosevelt</p>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <h3>About Verisimilitudes</h3>
+            <p>Verisimilitudes is an independent solo blog project. We are left, politically, but we do not adhere to any particular ideology. We value truthfulness, integrity and compelling evidence.</p>
+            <h3>Translate</h3>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form id="newsletterForm" onsubmit="sendTestEmail(event)">
+                    <input type="email" id="emailInput" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <div id="posts" class="container" style="display: none;">
+        <div class="main-content" id="postsContent">
+            <div class="post" data-title="Test Article">
+                <h2>Test Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae justo cursus aliquam.</p>
+                <small>Posted on July 26, 2024</small>
+                <!-- Embed Google Doc -->
+                <iframe src="https://docs.google.com/document/d/e/2PACX-1vS1ohU5wrxbNZnMmxj7D4m7NTP_K_qsYOYWHPWhluJ9TbOps7K-JiiZaFf0MK3_tK7130yjA6Wu1YQ0/pub?embedded=true" width="100%" height="500"></iframe>
+            </div>
+            <!-- Add more posts as needed -->
+        </div>
+        <aside class="sidebar">
+            <h3>Translate</h3>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <div id="collections" class="container" style="display: none;">
+        <div class="main-content">
+            <h2>Collections</h2>
+            <div class="post">
+                <h2>Collection Title 1</h2>
+                <p>This collection focuses on recent political events.</p>
+            </div>
+            <div class="post">
+                <h2>Collection Title 2</h2>
+                <p>This collection covers various scientific breakthroughs.</p>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <h3>Translate</h3>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <div id="about" class="container" style="display: none;">
+        <div class="main-content">
+            <h2>About Verisimilitudes</h2>
+            <p>Verisimilitudes is an independent solo blog project. We are left, politically, but we do not adhere to any particular ideology. We value truthfulness, integrity and compelling evidence.</p>
+        </div>
+        <aside class="sidebar">
+            <h3>Translate</h3>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <div id="contact" class="container" style="display: none;">
+        <div class="main-content">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us:</p>
+            <p>Email: info@verisimilitudes.com</p>
+        </div>
+        <aside class="sidebar">
+            <h3>Translate</h3>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <div class="newsletter">
+                <h3>Subscribe to our Newsletter</h3>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2024 Verisimilitudes. All rights reserved.</p>
+    </footer>
+    <script>
+        function showPage(pageId) {
+            const pages = ['home', 'posts', 'collections', 'about', 'contact'];
+            pages.forEach(page => {
+                document.getElementById(page).style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'flex';
+        }
+        // Display the home page by default
+        showPage('home');
+        
+        function searchPosts() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('#postsContent .post');
+            posts.forEach(post => {
+                const title = post.getAttribute('data-title').toLowerCase();
+                if (title.includes(searchInput)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+            showPage('posts');
+        }
+        
+        function sendTestEmail(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            alert('A test email will be sent to: ' + email);
+        }
+    </script>
+</body>
+</html>
+
+
